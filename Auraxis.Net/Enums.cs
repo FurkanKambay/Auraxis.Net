@@ -33,7 +33,7 @@ namespace Auraxis.Net
         CleanRoom = 200
     }
 
-    public enum Faction
+    public enum Empire
     {
         NaniteSystems,
         VanuSovereignty,

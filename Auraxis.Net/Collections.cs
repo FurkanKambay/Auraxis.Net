@@ -1,4 +1,4 @@
-namespace Auraxis.Net.Models
+namespace Auraxis.Net
 {
     public class SingleCharacterById { }
     public class Character { }
