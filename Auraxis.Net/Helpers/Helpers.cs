@@ -1,9 +1,9 @@
 using Flurl;
-using System.Collections.Generic;
+using System;
 
 namespace Auraxis.Net.Helpers
 {
-    internal class Constants
+    internal static class Constants
     {
         internal const string CensusBaseUrl = "https://census.daybreakgames.com";
         internal const string ServiceId = "s:AuraxisNet";
@@ -31,13 +31,19 @@ namespace Auraxis.Net.Helpers
 
     internal static class EnumExtensions
     {
-        private static readonly Dictionary<Platform, string> platformPathMap = new Dictionary<Platform, string>
+        internal static string GetNamespaceString(this Platform value)
         {
-            [Platform.PC] = "ps2:v2",
-            [Platform.PS4_EU] = "ps2ps4eu:v2",
-            [Platform.PS4_US] = "ps2ps4us:v2"
-        };
-
-        internal static string GetNamespaceString(this Platform value) => platformPathMap[value];
+            switch (value)
+            {
+                case Platform.PC:
+                    return "ps2:v2";
+                case Platform.PS4_EU:
+                    return "ps2ps4eu:v2";
+                case Platform.PS4_US:
+                    return "ps2ps4us:v2";
+                default:
+                    throw new ArgumentOutOfRangeException(nameof(value));
+            }
+        }
     }
 }
