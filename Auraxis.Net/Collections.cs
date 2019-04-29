@@ -1,7 +1,6 @@
 namespace Auraxis.Net
 {
     public class SingleCharacterById { }
-    public class Character { }
     public class CharactersWeaponStat { }
     public class CharactersWeaponStatByFaction { }
     public class Outfit { }
