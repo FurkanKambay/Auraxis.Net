@@ -4,43 +4,66 @@ using System;
 
 namespace Auraxis.Net
 {
-    [JsonObject(NamingStrategyType = typeof(SnakeCaseNamingStrategy))]
     public class Name
     {
-        public string First { get; set; }
-        public string FirstLower { get; set; }
+        [JsonProperty("first")]
+        public string First { get; private set; }
+
+        [JsonProperty("first_lower")]
+        public string FirstLower { get; private set; }
     }
 
-    [JsonObject(NamingStrategyType = typeof(SnakeCaseNamingStrategy))]
     public struct Times
     {
-        public DateTimeOffset CreationDate { get; set; }
-        public DateTimeOffset LastSaveDate { get; set; }
-        public DateTimeOffset LastLoginDate { get; set; }
-        public int LoginCount { get; set; }
-        public int MinutesPlayed { get; set; }
+        [JsonProperty("creation_date")]
+        public DateTimeOffset CreationDate { get; private set; }
+
+        [JsonProperty("last_save_date")]
+        public DateTimeOffset LastSaveDate { get; private set; }
+
+        [JsonProperty("last_login_date")]
+        public DateTimeOffset LastLoginDate { get; private set; }
+
+        [JsonProperty("login_count")]
+        public int LoginCount { get; private set; }
+
+        [JsonProperty("minutes_played")]
+        public int MinutesPlayed { get; private set; }
     }
 
-    [JsonObject(NamingStrategyType = typeof(SnakeCaseNamingStrategy))]
     public struct Certs
     {
-        public int EarnedPoints { get; set; }
-        public int GiftedPoints { get; set; }
-        public int SpentPoints { get; set; }
-        public int AvailablePoints { get; set; }
-        public float PercentToNext { get; set; }
+        [JsonProperty("earned_points")]
+        public int EarnedPoints { get; private set; }
+
+        [JsonProperty("gifted_points")]
+        public int GiftedPoints { get; private set; }
+
+        [JsonProperty("spent_points")]
+        public int SpentPoints { get; private set; }
+
+        [JsonProperty("available_points")]
+        public int AvailablePoints { get; private set; }
+
+        [JsonProperty("percent_to_next")]
+        public float PercentToNext { get; private set; }
     }
 
-    [JsonObject(NamingStrategyType = typeof(SnakeCaseNamingStrategy))]
     public struct BattleRank
     {
-        public int PercentToNext { get; set; }
-        public int Value { get; set; }
+        [JsonProperty("percent_to_next")]
+        public int PercentToNext { get; private set; }
+
+        [JsonProperty("value")]
+        public int Value { get; private set; }
     }
 
     public struct DailyRibbon
     {
-        public int Count { get; set; }
-        public DateTimeOffset Date { get; set; }
+        [JsonProperty("count")]
+        public int Count { get; private set; }
+
+        [JsonProperty("date")]
+        public DateTimeOffset Date { get; private set; }
     }
 }
