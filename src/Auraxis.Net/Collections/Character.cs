@@ -1,41 +1,40 @@
-using Newtonsoft.Json;
-using Newtonsoft.Json.Serialization;
+using Json = Newtonsoft.Json.JsonPropertyAttribute;
 
 namespace Auraxis.Net
 {
     public class Character
     {
-        [JsonProperty("character_id")]
+        [Json("character_id")]
         public long CharacterId { get; private set; }
 
-        [JsonProperty("name")]
+        [Json("name")]
         public Name Name { get; private set; }
 
-        [JsonProperty("faction_id")]
+        [Json("faction_id")]
         public Empire Faction { get; private set; }
 
-        [JsonProperty("head_id")]
+        [Json("head_id")]
         public int HeadId { get; private set; }
 
-        [JsonProperty("title_id")]
+        [Json("title_id")]
         public int TitleId { get; private set; }
 
-        [JsonProperty("times")]
+        [Json("times")]
         public Times Times { get; private set; }
 
-        [JsonProperty("certs")]
+        [Json("certs")]
         public Certs Certs { get; private set; }
 
-        [JsonProperty("battle_rank")]
+        [Json("battle_rank")]
         public BattleRank BattleRank { get; private set; }
 
-        [JsonProperty("profile_id")]
+        [Json("profile_id")]
         public int ProfileId { get; private set; }
 
-        [JsonProperty("daily_ribbon")]
+        [Json("daily_ribbon")]
         public DailyRibbon DailyRibbon { get; private set; }
 
-        [JsonProperty("prestige_level")]
+        [Json("prestige_level")]
         public int PrestigeLevel { get; private set; }
     }
 }
