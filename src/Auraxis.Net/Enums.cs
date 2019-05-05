@@ -35,9 +35,10 @@ namespace Auraxis.Net
 
     public enum Empire
     {
-        NaniteSystems,
+        None,
         VanuSovereignty,
         NewConglomerate,
-        TerranRepublic
+        TerranRepublic,
+        NsOperatives
     }
 }
