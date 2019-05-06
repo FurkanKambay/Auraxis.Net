@@ -1,6 +1,8 @@
 using Auraxis.Net.Helpers;
 using Flurl;
+using System;
 using System.Collections.Generic;
+using System.Linq.Expressions;
 using System.Threading.Tasks;
 
 namespace Auraxis.Net
@@ -21,9 +23,23 @@ namespace Auraxis.Net
         public Url Url => ApiUtilities.GetUrl<T>(client.Platform, queryParameters);
         public Url CountUrl => ApiUtilities.GetCountUrl<T>(client.Platform, queryParameters);
 
-        public Query<T> Skip(int amount) => AddQuery("c:start", amount);
-        public Query<T> Take(int limit) => AddQuery("c:limit", limit);
-        public Query<T> TakePerDatabase(int limitPerDb) => AddQuery("c:limitPerDB", limitPerDb);
+        public Query<T> Skip(int count)
+            => AddQuery("c:start", count);
+
+        public Query<T> Take(int count)
+            => AddQuery("c:limit", count);
+
+        public Query<T> TakePerDatabase(int count)
+            => AddQuery("c:limitPerDB", count);
+
+        public Query<T> OrderBy<TField>(Expression<Func<T, TField>> fieldSelector)
+            => AddQuery("c:sort", fieldSelector.GetFieldName());
+
+        public Query<T> OrderByDescending<TField>(Expression<Func<T, TField>> fieldSelector)
+            => AddQuery("c:sort", $"{fieldSelector.GetFieldName()}:-1");
+
+        public Query<T> ThatHas<TField>(Expression<Func<T, TField>> fieldSelector)
+            => AddQuery("c:has", fieldSelector.GetFieldName());
 
         public async Task<List<T>> GetAsync() => await client.GetAsync<T>(queryParameters).ConfigureAwait(false);
         public async Task<int> CountAsync() => await client.CountAsync<T>(queryParameters).ConfigureAwait(false);
