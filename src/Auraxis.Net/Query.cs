@@ -23,6 +23,9 @@ namespace Auraxis.Net
         public Url Url => ApiUtilities.GetUrl<T>(client.Platform, queryParameters);
         public Url CountUrl => ApiUtilities.GetCountUrl<T>(client.Platform, queryParameters);
 
+        public WhereSelector<T, TField> Where<TField>(Expression<Func<T, TField>> fieldSelector)
+            => new WhereSelector<T, TField>(this, fieldSelector.GetFieldName());
+
         public Query<T> Skip(int count)
             => AddQuery("c:start", count);
 
