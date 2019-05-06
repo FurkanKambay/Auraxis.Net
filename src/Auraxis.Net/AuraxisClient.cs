@@ -1,4 +1,5 @@
 using Auraxis.Net.Helpers;
+using Flurl;
 using Flurl.Http;
 using Newtonsoft.Json.Linq;
 using System.Collections.Generic;
@@ -12,11 +13,12 @@ namespace Auraxis.Net
 
         internal AuraxisClient(Platform platform) => Platform = platform;
 
-        public async Task<List<T>> GetAsync<T>(int limit = 1)
+        public Query<T> Query<T>() => new Query<T>(this);
+
+        internal async Task<List<T>> GetAsync<T>(QueryParamCollection queryParameters)
         {
             JObject result = await ApiUtilities
-                .GetUrl<T>(Platform)
-                .SetQueryParam("c:limit", limit)
+                .GetUrl<T>(Platform, queryParameters)
                 .GetJsonAsync<JObject>()
                 .ConfigureAwait(false);
 
@@ -24,10 +26,10 @@ namespace Auraxis.Net
             return result[listName].ToObject<List<T>>();
         }
 
-        public async Task<int> CountAsync<T>()
+        internal async Task<int> CountAsync<T>(QueryParamCollection queryParameters)
         {
             JObject result = await ApiUtilities
-                .GetCountUrl<T>(Platform)
+                .GetCountUrl<T>(Platform, queryParameters)
                 .GetJsonAsync<JObject>()
                 .ConfigureAwait(false);
 
