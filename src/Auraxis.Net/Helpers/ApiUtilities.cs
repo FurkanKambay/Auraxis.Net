@@ -1,22 +1,26 @@
-﻿using Flurl;
+using Flurl;
+using System.Text.RegularExpressions;
 
 namespace Auraxis.Net.Helpers
 {
     internal static class ApiUtilities
     {
-        internal static Url GetCountUrl(Platform platform) =>
-            GetDataUrl(Constants.VerbCount, platform);
+        internal static string GetCollectionName<T>()
+            => Regex.Replace(typeof(T).Name, "(?!^)([A-Z0-9])", "_$1").ToLowerInvariant();
 
-        internal static Url GetGetUrl(Platform platform) =>
-            GetDataUrl(Constants.VerbGet, platform);
+        internal static Url GetCountUrl<T>(Platform platform)
+            => GetDataUrl<T>(Constants.VerbCount, platform);
 
-        private static Url GetDataUrl(string verb, Platform platform)
+        internal static Url GetUrl<T>(Platform platform)
+            => GetDataUrl<T>(Constants.VerbGet, platform);
+
+        private static Url GetDataUrl<T>(string verb, Platform platform)
         {
             return Constants.CensusBaseUrl.AppendPathSegments(
                 Constants.ServiceId,
                 verb.ToString().ToLower(),
-                platform.GetNamespaceString()
-            );
+                platform.GetNamespaceString(),
+                GetCollectionName<T>());
         }
     }
 }
