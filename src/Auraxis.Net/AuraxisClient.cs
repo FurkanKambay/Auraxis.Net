@@ -6,25 +6,28 @@ using System.Threading.Tasks;
 
 namespace Auraxis.Net
 {
-    public static class AuraxisClient
+    public class AuraxisClient
     {
-        public static async Task<List<T>> GetAsync<T>(Platform platform, int limit = 1)
-        {
-            var listName = ApiUtilities.GetCollectionName<T>() + "_list";
+        internal readonly Platform Platform;
 
+        internal AuraxisClient(Platform platform) => Platform = platform;
+
+        public async Task<List<T>> GetAsync<T>(int limit = 1)
+        {
             JObject result = await ApiUtilities
-                .GetUrl<T>(platform)
+                .GetUrl<T>(Platform)
                 .SetQueryParam("c:limit", limit)
                 .GetJsonAsync<JObject>()
                 .ConfigureAwait(false);
 
+            var listName = ApiUtilities.GetCollectionName<T>() + "_list";
             return result[listName].ToObject<List<T>>();
         }
 
-        public static async Task<int> CountAsync<T>(Platform platform)
+        public async Task<int> CountAsync<T>()
         {
             JObject result = await ApiUtilities
-                .GetCountUrl<T>(platform)
+                .GetCountUrl<T>(Platform)
                 .GetJsonAsync<JObject>()
                 .ConfigureAwait(false);
 
