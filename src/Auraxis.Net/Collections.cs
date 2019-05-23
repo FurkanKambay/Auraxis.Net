@@ -1,115 +1,70 @@
 namespace Auraxis.Net
 {
-    public class SingleCharacterById { }
-    public class CharactersWeaponStat { }
-    public class CharactersWeaponStatByFaction { }
-    public class Outfit { }
-    public class OutfitMember { }
-    public class CharactersFriend { }
-    public class Leaderboard { }
-    public class CharactersLeaderboard { }
-    public class CharactersEventGrouped { }
-    public class CharactersEvent { }
-    public class Event { }
+    // Exceptions
+    // Can only be queried by 'character_id = x' or equivalently 'id = x'.
+    // None of the 'c:' commands are supported (except c:join, c:tree).
+    // Only 'get' is supported, 'count' is not.
+    //public class SingleCharacterById { }
 
-    // No resolves
-    public class CharacterName { }
-    public class CharactersAchievement { }
-    public class CharactersCurrency { }
-    public class CharactersDirective { }
-    public class CharactersDirectiveObjective { }
-    public class CharactersDirectiveTier { }
-    public class CharactersDirectiveTree { }
-    public class CharactersSkill { }
-    public class CharactersStat { }
-    public class CharactersStatByFaction { }
+    // Exceptions
+    // Can only be queried by 'name = x' (required), 'period = x' (required), 'world = [world_id]' (optional).
+    // Possible values for name are: Kills, Score, Time, Deaths.
+    // Possible value for period are: Forever, Monthly, Weekly, Daily, OneLife.
+    // The only 'c:' commands supported are c:start and c:limit (also c:join, c:tree).
+    // Only 'get' is supported, 'count' is not.
+    //public class Leaderboard { }
+
+    // Exceptions
+    // Limitations are the same as those for leaderboard except 'character_id = x,y,z...' or equivalently 'id = x,y,z...' are used to limit the characters returned.
+    // Please note that only the top 10,000 characters are in the leaderboard data, many characters will not have a leaderboard row.
+    // Only 'get' is supported, 'count' is not.
+    //public class CharactersLeaderboard { }
+
+    // Exceptions
+    // Can only be queried by 'character_id = x,y,z...' or equivalently 'id = x,y,z...' and 'type = [DEATH | KILL]'.
+    // Multiple types can be provided comma-delimited. The default value type is 'DEATH,KILL'.
+    // The only 'c:' commands supported are c:start and c:limit (also c:join, c:tree).
+    // Only 'get' is supported, 'count' is not.
+    //public class CharactersEventGrouped { }
+
+    // Exceptions
+    // Limitations are the same as those for event except 'character_id = x,y,z...' or equivalently 'id = x,y,z...' are used to limit the rows returned.
+    //public class CharactersEvent { }
+
+    // Exceptions
+    // Can only be queried by before, after and type. 'before = [timestamp]', 'after = [timestamp]'.
+    // The default value of after is 0.
+    // The after query field is provided for polling purposes.
+    // The before query field can be used to pull all rows by stepping through them backwards. 'type = [BATTLE_RANK | ITEM | ACHIEVEMENT | DEATH | KILL | VEHICLE_DESTROY | FACILITY_CHARACTER]'.
+    // Multiple types can be provided comma-delimited. The default value type is 'BATTLE_RANK,ACHIEVEMENT,ITEM'.
+    // The only 'c:' command supported is c:limit (also c:join, c:tree).
+    // Only 'get' is supported, 'count' is not.
+    //public class Event { }
+
+    // Exceptions
+    // Can only be queried by 'world_id = x' and 'zone_ids = x,y,z...'.
+    // None of the 'c:' commands are supported (except c:join, c:tree).
+    // Only 'get' is supported, 'count' is not.
+    //public class Map { }
+
+    // Exceptions
+    // Limitations are the same as those for event except 'world_id = x,y,z...' or equivalently 'id = x,y,z...' are used to limit the rows returned.
+    //public class WorldEvent { }
+
+    // day.d01-d31, month.m01-m12, week.w01-w13
     public class CharactersStatHistory { }
     public class WorldStatHistory { }
-    public class CharactersItem { }
+
+    // param1-param14, string1-string4, conditional properties
     public class Ability { }
     public class AbilityType { }
-    public class Achievement { }
-    public class ArmorFacing { }
-    public class ArmorInfo { }
-    public class Currency { }
-    public class Directive { }
-    public class DirectiveTier { }
-    public class DirectiveTree { }
-    public class DirectiveTreeCategory { }
-    public class Effect { }
-    public class EffectType { }
-    public class EmpireScores { }
-    public class Experience { }
-    public class ExperienceRank { }
-    public class FacilityLink { }
-    public class FacilityType { }
-    public class Faction { }
-    public class FireGroup { }
-    public class FireGroupToFireMode { }
+
+    // many properties
     public class FireMode { }
-    public class FireMode2 { }
-    public class FireModeToProjectile { }
-    public class FireModeType { }
-    public class Image { }
-    public class ImageSet { }
-    public class ImageSetDefault { }
-    public class Item { }
-    public class ItemAttachment { }
-    public class ItemCategory { }
-    public class ItemProfile { }
-    public class ItemToWeapon { }
-    public class ItemType { }
-    public class Loadout { }
-    public class MapHex { }
-    public class MapRegion { }
-    public class MarketingBundle { }
-    public class MarketingBundleItem { }
-    public class MarketingBundleWith1Item { }
-    public class MetagameEvent { }
-    public class MetagameEventState { }
-    public class Objective { }
-    public class ObjectiveSetToObjective { }
-    public class ObjectiveType { }
-    public class PlayerState { }
-    public class PlayerStateGroup { }
-    public class PlayerStateGroup2 { }
-    public class Profile { }
-    public class Profile2 { }
-    public class ProfileArmorMap { }
-    public class ProfileResistMap { }
+    public class FireMode2 { } 
+
+    // conditional properties
     public class Projectile { }
-    public class ProjectileFlightType { }
-    public class Region { }
-    public class ResistInfo { }
-    public class ResistType { }
-    public class ResourceType { }
-    public class Reward { }
-    public class RewardGroupToReward { }
-    public class RewardSetToRewardGroup { }
-    public class RewardType { }
-    public class Skill { }
-    public class SkillCategory { }
-    public class SkillLine { }
-    public class SkillSet { }
-    public class TargetType { }
-    public class Title { }
-    public class Vehicle { }
-    public class VehicleAttachment { }
-    public class VehicleFaction { }
-    public class VehicleSkillSet { }
     public class Weapon { }
-    public class WeaponAmmoSlot { }
     public class WeaponDatasheet { }
-    public class WeaponToAttachment { }
-    public class WeaponToFireGroup { }
-    public class Zone { }
-    public class ZoneEffect { }
-    public class ZoneEffectType { }
-    public class CharactersWorld { }
-    public class World { }
-    public class OutfitMemberExtended { }
-    public class OutfitTank { }
-    public class CharactersOnlineStatus { }
-    public class Map { }
-    public class WorldEvent { }
 }

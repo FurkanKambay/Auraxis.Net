@@ -41,4 +41,23 @@ namespace Auraxis.Net
         TerranRepublic,
         NsOperatives
     }
+
+    public enum ArmorFacing
+    {
+        Front,
+        Right,
+        Top,
+        Rear,
+        Left,
+        Bottom
+    }
+
+    public enum TargetType
+    {
+        Invalid,
+        Self,
+        Any,
+        Enemy,
+        Ally
+    }
 }
