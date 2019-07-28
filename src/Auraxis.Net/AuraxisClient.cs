@@ -1,9 +1,9 @@
+using System.Collections.Generic;
+using System.Threading.Tasks;
 using Auraxis.Net.Helpers;
 using Flurl;
 using Flurl.Http;
 using Newtonsoft.Json.Linq;
-using System.Collections.Generic;
-using System.Threading.Tasks;
 
 namespace Auraxis.Net
 {

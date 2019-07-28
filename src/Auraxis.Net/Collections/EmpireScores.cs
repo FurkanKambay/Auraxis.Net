@@ -1,4 +1,6 @@
 using System;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Converters;
 using Json = Newtonsoft.Json.JsonPropertyAttribute;
 
 namespace Auraxis.Net
@@ -11,11 +13,13 @@ namespace Auraxis.Net
         [Json("tracker_description")]
         public string TrackerDescription { get; private set; }
 
-        [Json("start_date")]
-        public DateTimeOffset StartDate { get; private set; }
+        [Json("start_time")]
+        [JsonConverter(typeof(UnixDateTimeConverter))]
+        public DateTimeOffset StartTime { get; private set; }
 
-        [Json("end_date")]
-        public DateTimeOffset EndDate { get; private set; }
+        [Json("end_time")]
+        [JsonConverter(typeof(UnixDateTimeConverter))]
+        public DateTimeOffset EndTime { get; private set; }
 
         [Json("name")]
         public Name Name { get; private set; }

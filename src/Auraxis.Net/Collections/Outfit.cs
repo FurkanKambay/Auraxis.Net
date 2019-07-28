@@ -1,4 +1,6 @@
 using System;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Converters;
 using Json = Newtonsoft.Json.JsonPropertyAttribute;
 
 namespace Auraxis.Net
@@ -20,8 +22,9 @@ namespace Auraxis.Net
         [Json("alias_lower")]
         public string AliasLower { get; private set; }
 
-        [Json("time_created_date")]
-        public DateTimeOffset TimeCreatedDate { get; private set; }
+        [Json("time_created")]
+        [JsonConverter(typeof(UnixDateTimeConverter))]
+        public DateTimeOffset CreationTime { get; private set; }
 
         [Json("leader_character_id")]
         public long LeaderCharacterId { get; private set; }

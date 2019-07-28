@@ -61,7 +61,7 @@ namespace Auraxis.Net
 
     // many properties
     public class FireMode { }
-    public class FireMode2 { } 
+    public class FireMode2 { }
 
     // conditional properties
     public class Projectile { }

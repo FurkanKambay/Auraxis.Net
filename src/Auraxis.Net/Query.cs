@@ -1,9 +1,9 @@
-using Auraxis.Net.Helpers;
-using Flurl;
 using System;
 using System.Collections.Generic;
 using System.Linq.Expressions;
 using System.Threading.Tasks;
+using Auraxis.Net.Helpers;
+using Flurl;
 
 namespace Auraxis.Net
 {

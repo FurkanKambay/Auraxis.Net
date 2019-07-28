@@ -1,3 +1,6 @@
+using System;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Converters;
 using Json = Newtonsoft.Json.JsonPropertyAttribute;
 
 namespace Auraxis.Net
@@ -14,6 +17,7 @@ namespace Auraxis.Net
         public int Quantity { get; private set; }
 
         [Json("release_time")]
-        public int ReleaseTime { get; private set; }
+        [JsonConverter(typeof(UnixDateTimeConverter))]
+        public DateTimeOffset ReleaseTime { get; private set; }
     }
 }

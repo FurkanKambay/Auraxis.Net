@@ -1,5 +1,5 @@
-using Flurl;
 using System.Text.RegularExpressions;
+using Flurl;
 
 namespace Auraxis.Net.Helpers
 {
