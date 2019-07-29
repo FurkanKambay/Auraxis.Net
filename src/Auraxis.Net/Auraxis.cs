@@ -1,4 +1,4 @@
-﻿namespace Auraxis.Net
+namespace Auraxis.Net
 {
     public static class Auraxis
     {

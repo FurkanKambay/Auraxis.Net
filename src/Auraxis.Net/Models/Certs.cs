@@ -1,4 +1,4 @@
-﻿using Json = Newtonsoft.Json.JsonPropertyAttribute;
+using Json = Newtonsoft.Json.JsonPropertyAttribute;
 
 namespace Auraxis.Net
 {
