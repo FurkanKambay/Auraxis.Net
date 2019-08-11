@@ -1,4 +1,5 @@
 using System;
+using Auraxis.Net.Helpers;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using Json = Newtonsoft.Json.JsonPropertyAttribute;
@@ -18,12 +19,18 @@ namespace Auraxis.Net
         public DateTimeOffset LastSaveTime { get; private set; }
 
         [Json("day")]
-        public Days DayValues { get; private set; }
-
-        [Json("month")]
-        public Months MonthValues { get; private set; }
+        [JsonArrayPath("d{0:00}")]
+        [JsonConverter(typeof(HistoryArrayConverter))]
+        public int[] DayValues { get; private set; }
 
         [Json("week")]
-        public Weeks WeekValues { get; private set; }
+        [JsonArrayPath("w{0:00}")]
+        [JsonConverter(typeof(HistoryArrayConverter))]
+        public int[] WeekValues { get; private set; }
+
+        [Json("month")]
+        [JsonArrayPath("m{0:00}")]
+        [JsonConverter(typeof(HistoryArrayConverter))]
+        public int[] MonthValues { get; private set; }
     }
 }

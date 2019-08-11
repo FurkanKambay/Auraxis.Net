@@ -24,7 +24,7 @@ namespace Auraxis.Net
         public Url CountUrl => ApiUtilities.GetCountUrl<T>(Client.Platform, QueryParameters);
 
         public WhereSelector<T, TField> Where<TField>(Expression<Func<T, TField>> fieldSelector)
-            => new WhereSelector<T, TField>(this, fieldSelector.GetFieldName());
+            => new WhereSelector<T, TField>(this, fieldSelector.GetJsonPath<TField>());
 
         public Query<T> Skip(int count)
             => AddQuery("c:start", count);
@@ -36,13 +36,13 @@ namespace Auraxis.Net
             => AddQuery("c:limitPerDB", count);
 
         public Query<T> OrderBy<TField>(Expression<Func<T, TField>> fieldSelector)
-            => AddQuery("c:sort", fieldSelector.GetFieldName());
+            => AddQuery("c:sort", fieldSelector.GetJsonPath<TField>());
 
         public Query<T> OrderByDescending<TField>(Expression<Func<T, TField>> fieldSelector)
-            => AddQuery("c:sort", $"{fieldSelector.GetFieldName()}:-1");
+            => AddQuery("c:sort", $"{fieldSelector.GetJsonPath<TField>()}:-1");
 
         public Query<T> ThatHas<TField>(Expression<Func<T, TField>> fieldSelector)
-            => AddQuery("c:has", fieldSelector.GetFieldName());
+            => AddQuery("c:has", fieldSelector.GetJsonPath<TField>());
 
         public async Task<List<T>> GetAsync() => await Client.GetAsync<T>(QueryParameters).ConfigureAwait(false);
     }
