@@ -5,7 +5,7 @@ using Json = Newtonsoft.Json.JsonPropertyAttribute;
 
 namespace Auraxis.Net
 {
-    public class MarketingBundle
+    public class MarketingBundle : ICountableCollection
     {
         [Json("marketing_bundle_id")]
         public int Id { get; private set; }

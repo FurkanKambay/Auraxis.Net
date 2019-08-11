@@ -2,7 +2,7 @@ using Json = Newtonsoft.Json.JsonPropertyAttribute;
 
 namespace Auraxis.Net
 {
-    public class RewardType : ParamsBaseP5
+    public class RewardType : ParamsBaseP5, ICountableCollection
     {
         [Json("reward_type_id")]
         public int Id { get; private set; }

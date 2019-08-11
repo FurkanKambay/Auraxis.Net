@@ -2,7 +2,7 @@ using Json = Newtonsoft.Json.JsonPropertyAttribute;
 
 namespace Auraxis.Net
 {
-    public class MetagameEvent
+    public class MetagameEvent : ICountableCollection
     {
         [Json("metagame_event_id")]
         public int Id { get; private set; }

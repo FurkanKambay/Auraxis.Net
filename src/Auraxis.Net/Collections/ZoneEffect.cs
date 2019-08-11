@@ -2,7 +2,7 @@ using Json = Newtonsoft.Json.JsonPropertyAttribute;
 
 namespace Auraxis.Net
 {
-    public class ZoneEffect : ParamsBaseS4
+    public class ZoneEffect : ParamsBaseS4, ICountableCollection
     {
         [Json("zone_effect_id")]
         public int Id { get; private set; }

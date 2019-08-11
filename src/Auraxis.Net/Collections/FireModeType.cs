@@ -2,7 +2,7 @@ using Json = Newtonsoft.Json.JsonPropertyAttribute;
 
 namespace Auraxis.Net
 {
-    public class FireModeType
+    public class FireModeType : ICountableCollection
     {
         [Json("fire_mode_type_id")]
         public int Id { get; private set; }

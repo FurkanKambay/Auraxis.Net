@@ -5,7 +5,7 @@ using Json = Newtonsoft.Json.JsonPropertyAttribute;
 
 namespace Auraxis.Net
 {
-    public class CharactersDirectiveTier
+    public class CharactersDirectiveTier : ICountableCollection
     {
         [Json("character_id")]
         public long CharacterId { get; private set; }

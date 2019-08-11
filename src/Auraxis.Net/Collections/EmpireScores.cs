@@ -5,7 +5,7 @@ using Json = Newtonsoft.Json.JsonPropertyAttribute;
 
 namespace Auraxis.Net
 {
-    public class EmpireScores
+    public class EmpireScores : ICountableCollection
     {
         [Json("tracker_name")]
         public string TrackerName { get; private set; }

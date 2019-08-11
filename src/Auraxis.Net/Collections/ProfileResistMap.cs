@@ -2,7 +2,7 @@ using Json = Newtonsoft.Json.JsonPropertyAttribute;
 
 namespace Auraxis.Net
 {
-    public class ProfileResistMap
+    public class ProfileResistMap : ICountableCollection
     {
         [Json("profile_id")]
         public int ProfileId { get; private set; }

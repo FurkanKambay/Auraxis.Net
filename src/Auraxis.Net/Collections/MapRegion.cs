@@ -2,7 +2,7 @@ using Json = Newtonsoft.Json.JsonPropertyAttribute;
 
 namespace Auraxis.Net
 {
-    public class MapRegion
+    public class MapRegion : ICountableCollection
     {
         [Json("map_region_id")]
         public int Id { get; private set; }

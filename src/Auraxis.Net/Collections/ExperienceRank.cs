@@ -3,7 +3,7 @@ using Json = Newtonsoft.Json.JsonPropertyAttribute;
 
 namespace Auraxis.Net
 {
-    public class ExperienceRank
+    public class ExperienceRank : ICountableCollection
     {
         [Json("rank")]
         public int Rank { get; private set; }

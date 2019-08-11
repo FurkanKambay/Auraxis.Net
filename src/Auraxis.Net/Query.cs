@@ -7,21 +7,21 @@ using Flurl;
 
 namespace Auraxis.Net
 {
-    public class Query<T>
+    public class Query<T> where T : ICollection
     {
-        private readonly AuraxisClient client;
-        private readonly QueryParamCollection queryParameters = new QueryParamCollection();
+        internal readonly AuraxisClient Client;
+        internal readonly QueryParamCollection QueryParameters = new QueryParamCollection();
 
-        internal Query(AuraxisClient client) => this.client = client;
+        internal Query(AuraxisClient client) => Client = client;
 
         internal Query<T> AddQuery(string key, object value)
         {
-            queryParameters.Add(key, value);
+            QueryParameters.Add(key, value);
             return this;
         }
 
-        public Url Url => ApiUtilities.GetUrl<T>(client.Platform, queryParameters);
-        public Url CountUrl => ApiUtilities.GetCountUrl<T>(client.Platform, queryParameters);
+        public Url Url => ApiUtilities.GetUrl<T>(Client.Platform, QueryParameters);
+        public Url CountUrl => ApiUtilities.GetCountUrl<T>(Client.Platform, QueryParameters);
 
         public WhereSelector<T, TField> Where<TField>(Expression<Func<T, TField>> fieldSelector)
             => new WhereSelector<T, TField>(this, fieldSelector.GetFieldName());
@@ -44,7 +44,12 @@ namespace Auraxis.Net
         public Query<T> ThatHas<TField>(Expression<Func<T, TField>> fieldSelector)
             => AddQuery("c:has", fieldSelector.GetFieldName());
 
-        public async Task<List<T>> GetAsync() => await client.GetAsync<T>(queryParameters).ConfigureAwait(false);
-        public async Task<int> CountAsync() => await client.CountAsync<T>(queryParameters).ConfigureAwait(false);
+        public async Task<List<T>> GetAsync() => await Client.GetAsync<T>(QueryParameters).ConfigureAwait(false);
+    }
+
+    public static class QueryExtensions
+    {
+        public static async Task<int> CountAsync<T>(this Query<T> self) where T : ICountableCollection
+            => await self.Client.CountAsync<T>(self.QueryParameters).ConfigureAwait(false);
     }
 }

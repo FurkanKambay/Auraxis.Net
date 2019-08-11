@@ -4,7 +4,7 @@ namespace Auraxis.Net
 {
     // Exceptions
     // Querying by name.en, name.fr, etc is not supported.
-    public class World
+    public class World : ICountableCollection
     {
         [Json("world_id")]
         public Server Id { get; private set; }

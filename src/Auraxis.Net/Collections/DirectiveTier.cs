@@ -3,7 +3,7 @@ using Json = Newtonsoft.Json.JsonPropertyAttribute;
 
 namespace Auraxis.Net
 {
-    public class DirectiveTier
+    public class DirectiveTier : ICountableCollection
     {
         [Json("directive_tree_id")]
         public int DirectiveTreeId { get; private set; }

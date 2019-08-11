@@ -3,7 +3,7 @@ using Json = Newtonsoft.Json.JsonPropertyAttribute;
 
 namespace Auraxis.Net
 {
-    public class ImageSetDefault : ImageSet { }
+    public class ImageSetDefault : ImageSet, ICountableCollection { }
 
     public class ImageSet
     {

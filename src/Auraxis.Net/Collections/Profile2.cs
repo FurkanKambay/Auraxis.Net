@@ -2,7 +2,7 @@ using Json = Newtonsoft.Json.JsonPropertyAttribute;
 
 namespace Auraxis.Net
 {
-    public class Profile2
+    public class Profile2 : ICountableCollection
     {
         [Json("profile_id")]
         public int Id { get; private set; }

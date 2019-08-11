@@ -13,9 +13,11 @@ namespace Auraxis.Net
 
         internal AuraxisClient(Platform platform) => Platform = platform;
 
-        public Query<T> Query<T>() => new Query<T>(this);
+        public Query<T> Query<T>() where T : ICollection
+            => new Query<T>(this);
 
         internal async Task<List<T>> GetAsync<T>(QueryParamCollection queryParameters)
+            where T : ICollection
         {
             JObject result = await ApiUtilities
                 .GetUrl<T>(Platform, queryParameters)
@@ -27,6 +29,7 @@ namespace Auraxis.Net
         }
 
         internal async Task<int> CountAsync<T>(QueryParamCollection queryParameters)
+            where T : ICountableCollection
         {
             JObject result = await ApiUtilities
                 .GetCountUrl<T>(Platform, queryParameters)
