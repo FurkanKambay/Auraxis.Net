@@ -2,15 +2,15 @@ using Json = Newtonsoft.Json.JsonPropertyAttribute;
 
 namespace Auraxis.Net
 {
-    public class Objective
+    public class Objective : ParamsBaseP9
     {
         [Json("objective_id")]
-        public int ObjectiveId { get; private set; }
+        public int Id { get; private set; }
 
         [Json("objective_type_id")]
-        public int ObjectiveTypeId { get; private set; }
+        public int TypeId { get; private set; }
 
         [Json("objective_group_id")]
-        public int ObjectiveGroupId { get; private set; }
+        public int GroupId { get; private set; }
     }
 }

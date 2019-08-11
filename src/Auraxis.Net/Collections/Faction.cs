@@ -6,7 +6,7 @@ namespace Auraxis.Net
     public class Faction
     {
         [Json("faction_id")]
-        public Empire FactionId { get; private set; }
+        public Empire Id { get; private set; }
 
         [Json("name")]
         public LocalizedString Name { get; private set; }

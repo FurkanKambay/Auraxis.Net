@@ -6,13 +6,13 @@ namespace Auraxis.Net
     public class Item
     {
         [Json("item_id")]
-        public int ItemId { get; private set; }
+        public int Id { get; private set; }
 
         [Json("item_type_id")]
-        public int ItemTypeId { get; private set; }
+        public int TypeId { get; private set; }
 
         [Json("item_category_id")]
-        public int? ItemCategoryId { get; private set; }
+        public int? CategoryId { get; private set; }
 
         [Json("activatable_ability_id")]
         public int? ActivatableAbilityId { get; private set; }
@@ -30,7 +30,7 @@ namespace Auraxis.Net
         public LocalizedString Description { get; private set; }
 
         [Json("faction_id")]
-        public Empire FactionId { get; private set; }
+        public Empire Faction { get; private set; }
 
         [Json("max_stack_size")]
         public int MaxStackSize { get; private set; }

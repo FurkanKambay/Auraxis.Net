@@ -5,7 +5,7 @@ namespace Auraxis.Net
     public class MetagameEvent
     {
         [Json("metagame_event_id")]
-        public int MetagameEventId { get; private set; }
+        public int Id { get; private set; }
 
         [Json("name")]
         public LocalizedString Name { get; private set; }

@@ -5,7 +5,7 @@ namespace Auraxis.Net
     public class FireGroup
     {
         [Json("fire_group_id")]
-        public int FireGroupId { get; private set; }
+        public int Id { get; private set; }
 
         [Json("transition_duration_ms")]
         public int? TransitionDurationMs { get; private set; }

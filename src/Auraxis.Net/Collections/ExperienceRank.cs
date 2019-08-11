@@ -9,7 +9,7 @@ namespace Auraxis.Net
         public int Rank { get; private set; }
 
         [Json("xp_max")]
-        public int XpMax { get; private set; }
+        public double MaxExperience { get; private set; }
 
         [Json("vs")]
         public Rank Vs { get; private set; }

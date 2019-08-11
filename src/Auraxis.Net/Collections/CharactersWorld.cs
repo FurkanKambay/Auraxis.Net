@@ -12,6 +12,6 @@ namespace Auraxis.Net
         public long CharacterId { get; private set; }
 
         [Json("world_id")]
-        public int WorldId { get; private set; }
+        public Server World { get; private set; }
     }
 }

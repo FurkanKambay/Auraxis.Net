@@ -6,7 +6,7 @@ namespace Auraxis.Net
     public class Achievement
     {
         [Json("achievement_id")]
-        public int AchievementId { get; private set; }
+        public int Id { get; private set; }
 
         [Json("item_id")]
         public int ItemId { get; private set; }

@@ -2,13 +2,13 @@ using Json = Newtonsoft.Json.JsonPropertyAttribute;
 
 namespace Auraxis.Net
 {
-    public class ZoneEffect
+    public class ZoneEffect : ParamsBaseS4
     {
         [Json("zone_effect_id")]
-        public int ZoneEffectId { get; private set; }
+        public int Id { get; private set; }
 
         [Json("zone_effect_type_id")]
-        public int ZoneEffectTypeId { get; private set; }
+        public int TypeId { get; private set; }
 
         [Json("ability_id")]
         public int AbilityId { get; private set; }

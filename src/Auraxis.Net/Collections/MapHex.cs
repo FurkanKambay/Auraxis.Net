@@ -5,7 +5,7 @@ namespace Auraxis.Net
     public class MapHex
     {
         [Json("zone_id")]
-        public int ZoneId { get; private set; }
+        public Continent Zone { get; private set; }
 
         [Json("map_region_id")]
         public int MapRegionId { get; private set; }
@@ -17,7 +17,7 @@ namespace Auraxis.Net
         public int Y { get; private set; }
 
         [Json("hex_type")]
-        public int HexType { get; private set; }
+        public MapHexType Type { get; private set; }
 
         [Json("type_name")]
         public string TypeName { get; private set; }

@@ -6,7 +6,7 @@ namespace Auraxis.Net
     public class Vehicle
     {
         [Json("vehicle_id")]
-        public int VehicleId { get; private set; }
+        public int Id { get; private set; }
 
         [Json("name")]
         public LocalizedString Name { get; private set; }

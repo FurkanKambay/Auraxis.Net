@@ -5,10 +5,10 @@ namespace Auraxis.Net
     public class Region
     {
         [Json("region_id")]
-        public int RegionId { get; private set; }
+        public int Id { get; private set; }
 
         [Json("zone_id")]
-        public int ZoneId { get; private set; }
+        public Continent Zone { get; private set; }
 
         [Json("initial_faction_id")]
         public Empire InitialFaction { get; private set; }

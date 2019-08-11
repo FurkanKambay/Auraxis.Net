@@ -5,7 +5,7 @@ namespace Auraxis.Net
     public class ProjectileFlightType
     {
         [Json("projectile_flight_type_id")]
-        public int ProjectileFlightTypeId { get; private set; }
+        public int Id { get; private set; }
 
         [Json("description")]
         public string Description { get; private set; }

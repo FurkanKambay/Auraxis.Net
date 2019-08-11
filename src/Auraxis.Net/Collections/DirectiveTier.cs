@@ -9,7 +9,7 @@ namespace Auraxis.Net
         public int DirectiveTreeId { get; private set; }
 
         [Json("directive_tier_id")]
-        public int DirectiveTierId { get; private set; }
+        public int Id { get; private set; }
 
         [Json("directive_points")]
         public int DirectivePoints { get; private set; }

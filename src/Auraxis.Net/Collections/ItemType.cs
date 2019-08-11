@@ -5,7 +5,7 @@ namespace Auraxis.Net
     public class ItemType
     {
         [Json("item_type_id")]
-        public int ItemTypeId { get; private set; }
+        public int Id { get; private set; }
 
         [Json("name")]
         public string Name { get; private set; }

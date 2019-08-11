@@ -5,10 +5,10 @@ namespace Auraxis.Net
     public class MapRegion
     {
         [Json("map_region_id")]
-        public int MapRegionId { get; private set; }
+        public int Id { get; private set; }
 
         [Json("zone_id")]
-        public int ZoneId { get; private set; }
+        public Continent Zone { get; private set; }
 
         [Json("facility_id")]
         public int FacilityId { get; private set; }
@@ -17,10 +17,10 @@ namespace Auraxis.Net
         public string FacilityName { get; private set; }
 
         [Json("facility_type_id")]
-        public int FacilityTypeId { get; private set; }
+        public FacilityType FacilityType { get; private set; }
 
         [Json("facility_type")]
-        public string FacilityType { get; private set; }
+        public string FacilityTypeName { get; private set; }
 
         [Json("location_x")]
         public double LocationX { get; private set; }

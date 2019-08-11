@@ -5,7 +5,7 @@ namespace Auraxis.Net
     public class SkillCategory : SkillBase
     {
         [Json("skill_category_id")]
-        public int SkillCategoryId { get; private set; }
+        public int Id { get; private set; }
 
         [Json("skill_set_id")]
         public int SkillSetId { get; private set; }

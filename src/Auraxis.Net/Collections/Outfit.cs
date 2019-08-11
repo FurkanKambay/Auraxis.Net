@@ -8,7 +8,7 @@ namespace Auraxis.Net
     public class Outfit
     {
         [Json("outfit_id")]
-        public long OutfitId { get; private set; }
+        public long Id { get; private set; }
 
         [Json("name")]
         public string Name { get; private set; }

@@ -7,12 +7,15 @@ namespace Auraxis.Net
     public class World
     {
         [Json("world_id")]
-        public int WorldId { get; private set; }
+        public Server Id { get; private set; }
 
         [Json("state")]
-        public string State { get; private set; }
+        public WorldState State { get; private set; }
 
         [Json("name")]
         public LocalizedString Name { get; private set; }
+
+        [Json("description")]
+        public LocalizedString Description { get; private set; }
     }
 }

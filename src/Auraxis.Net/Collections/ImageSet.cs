@@ -8,7 +8,7 @@ namespace Auraxis.Net
     public class ImageSet
     {
         [Json("image_set_id")]
-        public int ImageSetId { get; private set; }
+        public int Id { get; private set; }
 
         [Json("description")]
         public string Description { get; private set; }

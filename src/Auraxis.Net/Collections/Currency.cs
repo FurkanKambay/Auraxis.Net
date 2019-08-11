@@ -5,7 +5,7 @@ namespace Auraxis.Net
     public class Currency
     {
         [Json("currency_id")]
-        public int CurrencyId { get; private set; }
+        public int Id { get; private set; }
 
         [Json("name")]
         public LocalizedString Name { get; private set; }

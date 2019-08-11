@@ -8,7 +8,7 @@ namespace Auraxis.Net
     public class MarketingBundle
     {
         [Json("marketing_bundle_id")]
-        public int MarketingBundleId { get; private set; }
+        public int Id { get; private set; }
 
         [Json("name")]
         public LocalizedString Name { get; private set; }

@@ -5,7 +5,7 @@ namespace Auraxis.Net
     public class ArmorInfo
     {
         [Json("armor_info_id")]
-        public int ArmorInfoId { get; private set; }
+        public int Id { get; private set; }
 
         [Json("armor_facing_id")]
         public ArmorFacing ArmorFacing { get; private set; }

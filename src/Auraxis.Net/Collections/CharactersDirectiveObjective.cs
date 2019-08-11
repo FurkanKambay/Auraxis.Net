@@ -17,7 +17,7 @@ namespace Auraxis.Net
         public int ObjectiveGroupId { get; private set; }
 
         [Json("status")]
-        public int Status { get; private set; }
+        public bool IsDone { get; private set; }
 
         [Json("state_data")]
         public int StateData { get; private set; }

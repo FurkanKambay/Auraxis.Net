@@ -18,9 +18,9 @@ namespace Auraxis.Net
         public DateTimeOffset MemberSinceTime { get; private set; }
 
         [Json("rank")]
-        public string Rank { get; private set; }
+        public string RankName { get; private set; }
 
         [Json("rank_ordinal")]
-        public int RankOrdinal { get; private set; }
+        public OutfitMemberRank Rank { get; private set; }
     }
 }

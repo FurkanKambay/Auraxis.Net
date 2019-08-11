@@ -6,13 +6,13 @@ namespace Auraxis.Net
     public class Directive
     {
         [Json("directive_id")]
-        public int DirectiveId { get; private set; }
+        public int Id { get; private set; }
 
         [Json("directive_tree_id")]
-        public int DirectiveTreeId { get; private set; }
+        public int TreeId { get; private set; }
 
         [Json("directive_tier_id")]
-        public int DirectiveTierId { get; private set; }
+        public int TierId { get; private set; }
 
         [Json("objective_set_id")]
         public int ObjectiveSetId { get; private set; }

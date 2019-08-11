@@ -6,13 +6,13 @@ namespace Auraxis.Net
     public class Profile
     {
         [Json("profile_id")]
-        public int ProfileId { get; private set; }
+        public int Id { get; private set; }
 
         [Json("profile_type_id")]
-        public int ProfileTypeId { get; private set; }
+        public ProfileType Type { get; private set; }
 
         [Json("profile_type_description")]
-        public string ProfileTypeDescription { get; private set; }
+        public string TypeDescription { get; private set; }
 
         [Json("faction_id")]
         public Empire Faction { get; private set; }

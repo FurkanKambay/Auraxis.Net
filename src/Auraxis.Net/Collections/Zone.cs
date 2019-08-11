@@ -5,7 +5,7 @@ namespace Auraxis.Net
     public class Zone
     {
         [Json("zone_id")]
-        public int ZoneId { get; private set; }
+        public Continent Id { get; private set; }
 
         [Json("code")]
         public string Code { get; private set; }

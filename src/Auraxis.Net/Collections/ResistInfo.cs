@@ -5,7 +5,7 @@ namespace Auraxis.Net
     public class ResistInfo
     {
         [Json("resist_info_id")]
-        public int ResistInfoId { get; private set; }
+        public int Id { get; private set; }
 
         [Json("resist_type_id")]
         public int ResistTypeId { get; private set; }
