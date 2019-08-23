@@ -7,21 +7,17 @@ using Flurl;
 
 namespace Auraxis.Net
 {
-    public class Query<T> where T : ICollection
+    public class Query<T> : BareQuery<T> where T : IRegularCollection
     {
-        internal readonly AuraxisClient Client;
-        internal readonly QueryParamCollection QueryParameters = new QueryParamCollection();
+        public Url CountUrl => ApiUtilities.GetCountUrl<T>(Client.Platform, QueryParameters, isExample: true);
 
-        internal Query(AuraxisClient client) => Client = client;
+        internal Query(AuraxisClient client) : base(client) { }
 
-        internal Query<T> AddQuery(string key, object value)
+        internal new Query<T> AddQuery(string key, object value)
         {
-            QueryParameters.Add(key, value);
+            var returned = base.AddQuery(key, value);
             return this;
         }
-
-        public Url Url => ApiUtilities.GetUrl<T>(Client.Platform, QueryParameters);
-        public Url CountUrl => ApiUtilities.GetCountUrl<T>(Client.Platform, QueryParameters);
 
         public WhereSelector<T, TField> Where<TField>(Expression<Func<T, TField>> fieldSelector)
             => new WhereSelector<T, TField>(this, fieldSelector.GetJsonPath<TField>());
@@ -43,6 +39,22 @@ namespace Auraxis.Net
 
         public Query<T> ThatHas<TField>(Expression<Func<T, TField>> fieldSelector)
             => AddQuery("c:has", fieldSelector.GetJsonPath<TField>());
+    }
+
+    public class BareQuery<T> where T : ICollection
+    {
+        internal readonly AuraxisClient Client;
+        internal readonly QueryParamCollection QueryParameters = new QueryParamCollection();
+
+        internal BareQuery<T> AddQuery(string key, object value)
+        {
+            QueryParameters.Add(key, value);
+            return this;
+        }
+
+        internal BareQuery(AuraxisClient client) => Client = client;
+
+        public Url Url => ApiUtilities.GetUrl<T>(Client.Platform, QueryParameters, isExample: true);
 
         public async Task<List<T>> GetAsync() => await Client.GetAsync<T>(QueryParameters).ConfigureAwait(false);
     }

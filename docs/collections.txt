@@ -1,0 +1,114 @@
+R: Has Resolves
+C: Not Countable
+
+  RC single_character_by_id
++ R  character
++    character_name
++    characters_achievement
++    characters_currency
++    characters_directive
++    characters_directive_objective
++    characters_directive_tier
++    characters_directive_tree
++    characters_skill
++    characters_stat
++    characters_stat_by_faction
+~    characters_stat_history           + day.d01-d31, month.m01-m12, week.w01-w13
++ R  characters_weapon_stat
++ R  characters_weapon_stat_by_faction
+~    world_stat_history                + day.d01-d31, month.m01-m12, week.w01-w13
++    characters_item
+     ability                           = param1-param14, string1-string4, conditional properties
+~    ability_type                      + param1-param14, string1-string4
++    achievement
++    armor_facing                      = enum
++    armor_info
++    currency
++    directive
++    directive_tier
++    directive_tree
++    directive_tree_category
+~    effect                            + param1-param13
+~    effect_type                       + param1-param13
++    empire_scores
++    experience
++    experience_rank
++    facility_link
++    facility_type
++    faction
++    fire_group
++    fire_group_to_fire_mode
+     fire_mode                         = many properties
+     fire_mode_2                       = many properties
++    fire_mode_to_projectile
++    fire_mode_type
++    image
++    image_set
++    image_set_default
++    item
++    item_attachment
++    item_category
++    item_profile
++    item_to_weapon
++    item_type
++    loadout
++    map_hex
++    map_region
++    marketing_bundle
++    marketing_bundle_item
++    marketing_bundle_with_1_item
++    metagame_event
++    metagame_event_state
+~    objective                         + param1-param9
++    objective_set_to_objective
+~    objective_type                    + param1-param9
++    player_state
++    player_state_group
++    player_state_group_2
++    profile
++    profile_2
++    profile_armor_map
++    profile_resist_map
+     projectile                        = conditional properties
++    projectile_flight_type
++    region
++    resist_info
++    resist_type
++    resource_type
+~    reward                            + param1-param5
++    reward_group_to_reward
++    reward_set_to_reward_group
+~    reward_type                       + param1-param5
++    skill
++    skill_category
++    skill_line
++    skill_set
++    target_type                       = enum
++    title
++    vehicle
++    vehicle_attachment
++    vehicle_faction
++    vehicle_skill_set
+     weapon                            = conditional properties
++    weapon_ammo_slot
+     weapon_datasheet                  = conditional properties
++    weapon_to_attachment
++    weapon_to_fire_group
++    zone
+~    zone_effect                       + param1-param14, string1-string4
+~    zone_effect_type                  + param1-param14, string1-string4
++  C characters_world
++    world
++ R  outfit
++ R  outfit_member
++    outfit_member_extended
++    outfit_rank
++  C characters_online_status
+   C map
+  RC characters_friend
+  RC leaderboard
+  RC characters_leaderboard
+  RC characters_event_grouped
+  R  characters_event
+  RC event
+     world_event

@@ -1,0 +1,177 @@
+No data for single_character_by_id
+No data for characters_item
+No data for characters_online_status
+No data for map
+No data for characters_friend
+No data for leaderboard
+No data for characters_leaderboard
+
+Models
+======
+
+DAY: day.d01-d31
+WEEK: week.w01-w13
+MONTH: month.m01-m12
+LocalizedString<x>: x.de, x.en, x.es, x.fr, x.it, x.tr
+ImageSetTitle<x>: x.image_id, x.image_set_id, LocalizedString<x.title>
+NAME: name.first, name.first_lower
+
+character:
+battle_rank.percent_to_next
+battle_rank.value
+certs.available_points
+certs.earned_points
+certs.gifted_points
+certs.percent_to_next
+certs.spent_points
+daily_ribbon
+daily_ribbon.count
+daily_ribbon.date
+daily_ribbon.time
+NAME
+times.creation
+times.creation_date
+times.last_login
+times.last_login_date
+times.last_save
+times.last_save_date
+times.login_count
+times.minutes_played
+
+character_name:
+NAME
+
+characters_stat_history:
+world_stat_history:
+DAY, WEEK, MONTH
+
+experience_rank
+ImageSetTitle: x.image_id, x.image_set_id, LocalizedString<x.title>
+
+achievement
+currency
+directive
+directive_tier
+directive_tree
+directive_tree_category
+empire_scores
+faction
+item
+item_category
+marketing_bundle
+metagame_event
+profile
+region
+skill
+skill_category
+skill_line
+skill_set
+title
+vehicle
+zone
+
+
+character: [BATTLE_RANK, CERTS, DAILY_RIBBON, character_id, faction_id, head_id, NAME, prestige_level, profile_id, TIMES, title_id]
+character_name: [character_id, NAME]
+characters_achievement: [achievement_id, character_id, earned_count, finish, finish_date, last_save, last_save_date, start, start_date]
+characters_currency: [character_id, currency_id, currency_name, prestige_currency, quantity]
+characters_directive: [character_id, completion_time, completion_time_date, directive_id, directive_tree_id]
+characters_directive_objective: [character_id, directive_id, objective_group_id, objective_id, state_data, status]
+characters_directive_tier: [character_id, completion_time, completion_time_date, directive_tier_id, directive_tree_id]
+characters_directive_tree: [character_id, completion_time, completion_time_date, current_directive_tier_id, current_level, directive_tree_id]
+characters_skill: [character_id, last_save, last_save_date, skill_id]
+characters_stat: [character_id, last_save, last_save_date, profile_id, stat_name, value_daily, value_forever, value_monthly, value_one_life_max, value_weekly]
+characters_stat_by_faction: [character_id, last_save, last_save_date, profile_id, stat_name, value_daily_nc, value_daily_tr, value_daily_vs, value_forever_nc, value_forever_tr, value_forever_vs, value_monthly_nc, value_monthly_tr, value_monthly_vs, value_one_life_max_nc, value_one_life_max_tr, value_one_life_max_vs, value_weekly_nc, value_weekly_tr, value_weekly_vs]
+characters_stat_history: [all_time, character_id, DAY, last_save, last_save_date, MONTH, one_life_max, stat_name, WEEK]
+characters_weapon_stat: [character_id, item_id, last_save, last_save_date, stat_name, value, vehicle_id]
+characters_weapon_stat_by_faction: [character_id, item_id, last_save, last_save_date, stat_name, value_nc, value_tr, value_vs, vehicle_id]
+world_stat_history: [all_time, DAY, faction, last_save, last_save_date, MONTH, stat_name, tracker_name, type, WEEK, world_id]
+ability: [ability_id, ability_type_id, distance_max, expire_msec, first_use_delay_msec, flag_toggle, next_use_delay_msec, param1, param10, param11, param12, param13, param14, param2, param3, param4, param5, param6, param7, param8, param9, radius_max, resource_cost_per_msec, resource_first_cost, resource_type_id, reuse_delay_msec, string1, string2, string3, string4]
+ability_type: [ability_type_id, description, param1, param10, param11, param12, param13, param14, param2, param3, param4, param5, param6, param7, param8, param9, string1, string2, string3, string4]
+achievement: [achievement_id, LocalizedString<description>, image_id, image_path, image_set_id, item_id, LocalizedString<name>, objective_group_id, repeatable, reward_id]
+armor_facing: [armor_facing_id, description]
+armor_info: [armor_amount, armor_facing_id, armor_info_id, armor_percent, description]
+currency: [currency_id, icon_id, inventory_cap, LocalizedString<name>]
+directive: [LocalizedString<description>, directive_id, directive_tier_id, directive_tree_id, image_id, image_path, image_set_id, LocalizedString<name>, objective_set_id, qualify_requirement_id]
+directive_tier: [completion_count, directive_points, directive_tier_id, directive_tree_id, image_id, image_path, image_set_id, LocalizedString<name>, reward_set_id]
+directive_tree: [LocalizedString<description>, directive_tree_category_id, directive_tree_id, image_id, image_path, image_set_id, LocalizedString<name>]
+directive_tree_category: [directive_tree_category_id, LocalizedString<name>]
+effect: [ability_id, duration_seconds, effect_id, effect_type_id, is_drain, param1, param10, param11, param12, param13, param2, param3, param4, param5, param6, param7, param8, param9, resist_type_id, target_type_id]
+effect_type: [description, effect_type_id, param1, param10, param11, param12, param13, param2, param3, param4, param5, param6, param7, param8, param9]
+empire_scores: [LocalizedString<description>, end_date, end_time, LocalizedString<name>, start_date, start_time, tracker_description, tracker_name]
+experience: [description, experience_id, xp]
+experience_rank: [ImageSetTitle<nc>, nc_image_path, rank, ImageSetTitle<tr>, tr_image_path, ImageSetTitle<vs>, vs_image_path, xp_max]
+facility_link: [description, facility_id_a, facility_id_b, zone_id]
+facility_type: [description, facility_type_id]
+faction: [code_tag, faction_id, image_id, image_path, image_set_id, LocalizedString<name>, user_selectable]
+fire_group: [can_chamber_ironsights, chamber_duration_ms, fire_group_id, spool_up_initial_refire_ms, spool_up_ms, transition_duration_ms]
+fire_group_to_fire_mode: [fire_group_id, fire_mode_id, fire_mode_index]
+fire_mode: [cof_recoil, damage, damage_max, damage_max_range, damage_min, damage_min_range, damage_radius, damage_resist_type, damage_target_type, damage_type, default_zoom, LocalizedString<description>, fire_mode_id, indirect_damage_max, indirect_damage_max_range, indirect_damage_min, indirect_damage_min_range, indirect_damage_resist_type, indirect_damage_target_type, item_id, max_speed, muzzle_velocity, pellet_spread, pellets_per_shot, player_state_group_id, projectile_description, reload_chamber_time_ms, reload_time_ms, speed, type]
+fire_mode_2: [ability_id, ammo_slot, armor_penetration, automatic, cof_override, cof_pellet_spread, cof_range, cof_recoil, cof_scalar, cof_scalar_moving, damage_direct_effect_id, damage_head_multiplier, damage_indirect_effect_id, damage_legs_multiplier, LocalizedString<description>, fire_ammo_per_shot, fire_auto_fire_ms, fire_burst_count, fire_charge_up_ms, fire_delay_ms, fire_detect_range, fire_duration_ms, fire_mode_id, fire_mode_type_id, fire_pellets_per_shot, fire_refire_ms, grief_immune, heat_per_shot, heat_recovery_delay_ms, heat_threshold, iron_sights, laser_guided, lockon_acquire_close_ms, lockon_acquire_far_ms, lockon_acquire_ms, lockon_angle, lockon_lose_ms, lockon_maintain, lockon_radius, lockon_range, lockon_range_close, lockon_range_far, lockon_required, max_damage, max_damage_ind, max_damage_ind_radius, max_damage_range, min_damage, min_damage_ind, min_damage_ind_radius, min_damage_range, move_modifier, player_state_group_id, projectile_speed_override, recoil_angle_max, recoil_angle_min, recoil_first_shot_modifier, recoil_horizontal_max, recoil_horizontal_max_increase, recoil_horizontal_min, recoil_horizontal_min_increase, recoil_horizontal_tolerance, recoil_increase, recoil_increase_crouched, recoil_magnitude_max, recoil_magnitude_min, recoil_max_total_magnitude, recoil_recovery_acceleration, recoil_recovery_delay_ms, recoil_recovery_rate, recoil_shots_at_min_magnitude, reload_ammo_fill_ms, reload_block_auto, reload_chamber_ms, reload_continuous, reload_loop_end_ms, reload_loop_start_ms, reload_time_ms, shield_bypass_pct, sprint_fire, sway_amplitude_x, sway_amplitude_y, sway_can_steady, sway_period_x, sway_period_y, turn_modifier, use_in_water, zoom_default]
+fire_mode_to_projectile: [fire_mode_id, projectile_id]
+fire_mode_type: [description, fire_mode_type_id]
+image: [description, image_id, path]
+image_set: [description, image_id, image_path, image_set_id, type_description, type_id]
+image_set_default: [description, image_id, image_path, image_set_id, type_description, type_id]
+item: [activatable_ability_id, LocalizedString<description>, faction_id, image_id, image_path, image_set_id, is_default_attachment, is_vehicle_weapon, item_category_id, item_id, item_type_id, max_stack_size, LocalizedString<name>, passive_ability_id, release_time, skill_set_id]
+item_attachment: [attachment_item_id, item_id]
+item_category: [item_category_id, LocalizedString<name>]
+item_profile: [item_id, profile_id]
+item_to_weapon: [item_id, weapon_id]
+item_type: [code, item_type_id, name]
+loadout: [code_name, faction_id, loadout_id, profile_id]
+map_hex: [hex_type, map_region_id, type_name, x, y, zone_id]
+map_region: [facility_id, facility_name, facility_type, facility_type_id, location_x, location_y, location_z, map_region_id, reward_amount, reward_currency_id, zone_id]
+marketing_bundle: [cert_price, LocalizedString<description>, image_id, marketing_bundle_id, LocalizedString<name>, release_time, station_cash_price]
+marketing_bundle_item: [item_id, marketing_bundle_id, quantity, release_time]
+marketing_bundle_with_1_item: [cert_price, item_id, item_quantity, marketing_bundle_id, release_time, station_cash_price]
+metagame_event: [LocalizedString<description>, experience_bonus, metagame_event_id, LocalizedString<name>, type]
+metagame_event_state: [metagame_event_state_id, name]
+objective: [objective_group_id, objective_id, objective_type_id, param1, param2, param3, param4, param5, param6, param7, param8, param9]
+objective_set_to_objective: [objective_group_id, objective_set_id]
+objective_type: [description, objective_type_id, param1, param2, param3, param4, param5, param6, param7, param8, param9]
+player_state: [description, player_state_id]
+player_state_group: [min_cone_of_fire, player_state, player_state_group_id]
+player_state_group_2: [can_iron_sight, cof_grow_rate, cof_max, cof_min, cof_recovery_delay_ms, cof_recovery_delay_threshold, cof_recovery_rate, cof_shots_before_penalty, cof_turn_penalty, player_state_group_id, player_state_id]
+profile: [backpedal_speed_modifier, LocalizedString<description>, faction_id, image_id, image_path, image_set_id, movement_speed, LocalizedString<name>, profile_id, profile_type_description, profile_type_id, sprint_speed_modifier, strafe_speed_modifier]
+profile_2: [description, profile_id]
+profile_armor_map: [armor_info_id, profile_id, rank]
+profile_resist_map: [profile_id, rank, resist_info_id]
+projectile: [acceleration, arm_distance, detonate_distance, detonate_on_contact, drag, gravity, lifespan, lockon_acceleration, lockon_lifespan, lockon_lose_angle, lockon_seek_in_flight, projectile_flight_type_id, projectile_id, speed, speed_max, sticks_to_players, sticky, tether_distance, turn_rate]
+projectile_flight_type: [description, projectile_flight_type_id]
+region: [initial_faction_id, LocalizedString<name>, region_id, zone_id]
+resist_info: [description, multiplier_when_headshot, resist_amount, resist_info_id, resist_percent, resist_type_id]
+resist_type: [description, resist_type_id]
+resource_type: [description, resource_type_id]
+reward: [count_max, count_min, param1, param2, param3, param4, param5, reward_id, reward_type_id]
+reward_group_to_reward: [reward_group_id, reward_id]
+reward_set_to_reward_group: [reward_group_id, reward_set_id]
+reward_type: [count_max, count_min, description, param1, param2, param3, param4, param5, reward_type_id]
+skill: [LocalizedString<description>, grant_item_id, image_id, image_path, image_set_id, LocalizedString<name>, skill_id, skill_line_id, skill_line_index, skill_points]
+skill_category: [LocalizedString<description>, image_id, image_path, image_set_id, LocalizedString<name>, skill_category_id, skill_points, skill_set_id, skill_set_index]
+skill_line: [LocalizedString<description>, image_id, image_path, image_set_id, LocalizedString<name>, skill_category_id, skill_category_index, skill_line_id, skill_points]
+skill_set: [LocalizedString<description>, image_id, image_path, image_set_id, LocalizedString<name>, required_item_id, skill_points, skill_set_id]
+target_type: [description, target_type_id]
+title: [LocalizedString<name>, title_id]
+vehicle: [cost, cost_resource_id, LocalizedString<description>, image_id, image_path, image_set_id, LocalizedString<name>, type_id, type_name, vehicle_id]
+vehicle_attachment: [description, faction_id, item_id, slot_id, vehicle_id]
+vehicle_faction: [faction_id, vehicle_id]
+vehicle_skill_set: [display_index, faction_id, skill_set_id, vehicle_id]
+weapon: [equip_ms, from_iron_sights_ms, heat_bleed_off_rate, heat_capacity, heat_overheat_penalty_ms, melee_detect_height, melee_detect_width, move_modifier, sprint_recovery_ms, to_iron_sights_ms, turn_modifier, unequip_ms, weapon_group_id, weapon_id]
+weapon_ammo_slot: [capacity, clip_size, refill_ammo_delay_ms, refill_ammo_rate, weapon_id, weapon_slot_index]
+weapon_datasheet: [capacity, clip_size, damage, damage_max, damage_min, direct_damage, fire_cone, fire_cone_max, fire_cone_min, fire_rate_ms, fire_rate_ms_min, fire_rate_mx_max, indirect_damage, item_id, LocalizedString<range>, reload_ms, reload_ms_max, reload_ms_min, show_clip_size, show_fire_modes, show_range]
+weapon_to_attachment: [attachment_id, item_id, weapon_group_id]
+weapon_to_fire_group: [fire_group_id, fire_group_index, weapon_id]
+zone: [code, LocalizedString<description>, hex_size, LocalizedString<name>, zone_id]
+zone_effect: [ability_id, param1, param10, param11, param12, param13, param14, param2, param3, param4, param5, param6, param7, param8, param9, string1, string2, string3, string4, zone_effect_id, zone_effect_type_id]
+zone_effect_type: [description, param1, param10, param11, param12, param13, param14, param2, param3, param4, param5, param6, param7, param8, param9, string1, string2, string3, string4, zone_effect_type_id]
+characters_world: [character_id, world_id]
+world: [description_t4id, name_t4id, state, world_id]
+outfit: [alias, alias_lower, leader_character_id, member_count, name, name_lower, outfit_id, time_created, time_created_date]
+outfit_member: [character_id, member_since, member_since_date, outfit_id, rank, rank_ordinal]
+outfit_member_extended: [alias, alias_lower, character_id, leader_character_id, member_count, member_rank, member_rank_ordinal, member_since, member_since_date, name, name_lower, outfit_id, time_created, time_created_date]
+outfit_rank: [description, name, ordinal, outfit_id]
+characters_event_grouped: [character_id, id, type]
+characters_event: [after, before, character_id, id, type]
+event: [after, before, type]
+world_event: [after, before, id, type, world_id]

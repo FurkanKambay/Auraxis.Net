@@ -1,0 +1,53 @@
+R: Has Resolves
+C: Not Countable
+
+RC single_character_by_id
+ C map
+RC leaderboard
+RC characters_leaderboard
+RC characters_event_grouped
+R  characters_event
+RC event
+   world_event
+
+
+[SupportedCommands(null)]
+SingleCharacterById
+  ❔ Can only be queried by 'character_id = x' or equivalently 'id = x'.
+  ❌ None of the 'c:' commands are supported (except c:join, c:tree).
+
+[SupportedCommands("start", "limit")]
+Leaderboard
+  ❔ Can only be queried by 'name = x' (required), 'period = x' (required), 'world = [world_id]' (optional).
+  Possible values for name are: Kills, Score, Time, Deaths.
+  Possible value for period are: Forever, Monthly, Weekly, Daily, OneLife.
+  ❌ The only 'c:' commands supported are c:start and c:limit (also c:join, c:tree).
+
+CharactersLeaderboard
+  Limitations are the same as those for leaderboard except 'character_id = x,y,z...' or equivalently 'id = x,y,z...' are used to limit the characters returned.
+  Please note that only the top 10,000 characters are in the leaderboard data, many characters will not have a leaderboard row.
+
+[SupportedCommands("start", "limit")]
+CharactersEventGrouped
+  ❔ Can only be queried by 'character_id = x,y,z...' or equivalently 'id = x,y,z...' and 'type = [DEATH | KILL]'.
+  Multiple types can be provided comma-delimited. The default value type is 'DEATH,KILL'.
+  ❌ The only 'c:' commands supported are c:start and c:limit (also c:join, c:tree).
+
+[SupportedCommands("limit")]
+Event
+  ❔ Can only be queried by before, after and type. 'before = [timestamp]', 'after = [timestamp]'.
+  The default value of after is 0.
+  The after query field is provided for polling purposes.
+  The before query field can be used to pull all rows by stepping through them backwards. 'type = [BATTLE_RANK | ITEM | ACHIEVEMENT | DEATH | KILL | VEHICLE_DESTROY | FACILITY_CHARACTER]'.
+  Multiple types can be provided comma-delimited. The default value type is 'BATTLE_RANK,ACHIEVEMENT,ITEM'.
+  ❌ The only 'c:' command supported is c:limit (also c:join, c:tree).
+
+CharactersEvent
+  Limitations are the same as those for event except 'character_id = x,y,z...' or equivalently 'id = x,y,z...' are used to limit the rows returned.
+
+WorldEvent
+  Limitations are the same as those for event except 'world_id = x,y,z...' or equivalently 'id = x,y,z...' are used to limit the rows returned.
+
+Map
+  ❔ Can only be queried by 'world_id = x' and 'zone_ids = x,y,z...'.
+  ❌ None of the 'c:' commands are supported (except c:join, c:tree).
