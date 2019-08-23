@@ -8,6 +8,13 @@ namespace Auraxis.Net.Helpers
         internal static string GetCollectionName<T>()
             => Regex.Replace(typeof(T).Name, "(?!^)([A-Z0-9])", "_$1").ToLowerInvariant();
 
+        internal static Url GetEventStreamingUrl(Platform platform)
+        {
+            return Constants.EventStreamingBaseUrl
+                .SetQueryParam("environment", platform.GetNamespaceString())
+                .SetQueryParam("service-id", Constants.ServiceId);
+        }
+
         internal static Url GetCountUrl<T>(Platform platform, QueryParamCollection queryParameters, bool isExample)
             => GetDataUrl<T>(Constants.VerbCount, platform, queryParameters, isExample);
 
