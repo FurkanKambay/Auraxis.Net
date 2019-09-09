@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Net.WebSockets;
 using System.Runtime.CompilerServices;
 
-namespace Auraxis.Net
+namespace Auraxis.Net.EventStuff
 {
-    public class EventStuff
+    public class EventClient
     {
         /*
          * wss://push.planetside2.com/streaming?environment=[ps2|ps2ps4us|ps2ps4eu]&service-id=s:[your service id]
@@ -42,27 +42,29 @@ namespace Auraxis.Net
         PlayerLogout 	        A character has logged out of game
         */
 
+        public ClientWebSocket Client { get; set; }
 
-        public EventStuff()
+        public EventClient()
         {
-            var client = new ClientWebSocket();
+            Client = new ClientWebSocket();
 
         }
-        public static event Action PlayerLogin
-        {
-            add => Subscribe();
-            remove => Unsubscribe();
-        }
 
-        public static event Action PlayerLogout
-        {
-            add => Subscribe();
-            remove => Unsubscribe();
-        }
+        //public static event Action PlayerLogin
+        //{
+        //    add => Subscribe();
+        //    remove => Unsubscribe();
+        //}
 
-        public static List<string> Log = new List<string>();
+        //public static event Action PlayerLogout
+        //{
+        //    add => Subscribe();
+        //    remove => Unsubscribe();
+        //}
 
-        private static void Subscribe([CallerMemberName] string eventName = "") => Log.Add($"Subscribe: {eventName}");
-        private static void Unsubscribe([CallerMemberName] string eventName = "") => Log.Add($"Unsubscribe: {eventName}");
+        //public static List<string> Log = new List<string>();
+
+        //private static void Subscribe([CallerMemberName] string eventName = "") => Log.Add($"Subscribe: {eventName}");
+        //private static void Unsubscribe([CallerMemberName] string eventName = "") => Log.Add($"Unsubscribe: {eventName}");
     }
 }

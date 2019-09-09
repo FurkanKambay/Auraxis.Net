@@ -15,7 +15,7 @@ namespace Auraxis.Net
 
         internal new Query<T> AddQuery(string key, object value)
         {
-            var returned = base.AddQuery(key, value);
+            base.AddQuery(key, value);
             return this;
         }
 
