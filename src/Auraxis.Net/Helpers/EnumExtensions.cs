@@ -9,11 +9,11 @@ namespace Auraxis.Net.Helpers
             switch (value)
             {
                 case Platform.PC:
-                    return "ps2:v2";
+                    return Constants.NamespacePC;
                 case Platform.PS4_EU:
-                    return "ps2ps4eu:v2";
+                    return Constants.NamespacePS4_EU;
                 case Platform.PS4_US:
-                    return "ps2ps4us:v2";
+                    return Constants.NamespacePS4_US;
                 default:
                     throw new ArgumentOutOfRangeException(nameof(value));
             }
