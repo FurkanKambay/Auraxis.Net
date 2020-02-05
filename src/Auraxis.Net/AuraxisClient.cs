@@ -15,15 +15,15 @@ namespace Auraxis.Net
 
         public Query<T> Query<T>() => new Query<T>(this);
 
-        internal async Task<List<T>> GetAsync<T>(QueryParamCollection queryParameters)
+        internal async Task<QueryResult<T>> GetAsync<T>(QueryParamCollection queryParameters)
         {
-            JObject result = await ApiUtilities
-                .GetUrl<T>(Platform, queryParameters)
-                .GetJsonAsync<JObject>()
-                .ConfigureAwait(false);
+            Url url = ApiUtilities.GetUrl<T>(Platform, queryParameters);
+            JObject result = await url.GetJsonAsync<JObject>().ConfigureAwait(false);
 
-            var listName = ApiUtilities.GetCollectionName<T>() + "_list";
-            return result[listName].ToObject<List<T>>();
+            var timing = result[1].First.ToObject<int>();
+            var results = result[2].First.ToObject<List<T>>();
+
+            return new QueryResult<T>(results, url, timing);
         }
 
         internal async Task<int> CountAsync<T>(QueryParamCollection queryParameters)
