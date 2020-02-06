@@ -25,5 +25,17 @@ namespace Auraxis.Net
         public static Query<T> IsLessThanOrEqualTo<T, TField>(this WhereSelector<T, TField> self, TField value)
             where TField : struct, IComparable, IComparable<TField>, IConvertible, IEquatable<TField>, IFormattable
             => self.Query.AddQuery(self.FieldName, $"[{value}");
+
+        public static Query<T> IsAfter<T>(this WhereSelector<T, DateTimeOffset> self, DateTimeOffset value)
+            => self.Query.AddQuery(self.FieldName, $">{value.ToUnixTimeSeconds()}");
+
+        public static Query<T> IsBefore<T>(this WhereSelector<T, DateTimeOffset> self, DateTimeOffset value)
+            => self.Query.AddQuery(self.FieldName, $"<{value.ToUnixTimeSeconds()}");
+
+        public static Query<T> IsAfter<T>(this WhereSelector<T, DateTimeOffset?> self, DateTimeOffset value)
+            => self.Query.AddQuery(self.FieldName, $">{value.ToUnixTimeSeconds()}");
+
+        public static Query<T> IsBefore<T>(this WhereSelector<T, DateTimeOffset?> self, DateTimeOffset value)
+            => self.Query.AddQuery(self.FieldName, $"<{value.ToUnixTimeSeconds()}");
     }
 }
