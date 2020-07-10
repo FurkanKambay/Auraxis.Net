@@ -17,7 +17,7 @@ namespace Auraxis.Net
 
         internal async Task<QueryResult<T>> GetAsync<T>(QueryParamCollection queryParameters)
         {
-            Url url = ApiUtilities.GetUrl<T>(Platform, queryParameters);
+            Url url = ApiUtilities.GetUrl<T>(Platform, queryParameters, isExample: false);
             JObject result = await url.GetJsonAsync<JObject>().ConfigureAwait(false);
 
             var timing = result[1].First.ToObject<int>();
@@ -29,7 +29,7 @@ namespace Auraxis.Net
         internal async Task<int> CountAsync<T>(QueryParamCollection queryParameters)
         {
             JObject result = await ApiUtilities
-                .GetCountUrl<T>(Platform, queryParameters)
+                .GetCountUrl<T>(Platform, queryParameters, isExample: false)
                 .GetJsonAsync<JObject>()
                 .ConfigureAwait(false);
 

@@ -8,16 +8,16 @@ namespace Auraxis.Net.Helpers
         internal static string GetCollectionName<T>()
             => Regex.Replace(typeof(T).Name, "(?!^)([A-Z0-9])", "_$1").ToLowerInvariant();
 
-        internal static Url GetCountUrl<T>(Platform platform, QueryParamCollection queryParameters)
-            => GetDataUrl<T>(Constants.VerbCount, platform, queryParameters);
+        internal static Url GetCountUrl<T>(Platform platform, QueryParamCollection queryParameters, bool isExample)
+            => GetDataUrl<T>(Constants.VerbCount, platform, queryParameters, isExample);
 
-        internal static Url GetUrl<T>(Platform platform, QueryParamCollection queryParameters)
-            => GetDataUrl<T>(Constants.VerbGet, platform, queryParameters);
+        internal static Url GetUrl<T>(Platform platform, QueryParamCollection queryParameters, bool isExample)
+            => GetDataUrl<T>(Constants.VerbGet, platform, queryParameters, isExample);
 
-        private static Url GetDataUrl<T>(string verb, Platform platform, QueryParamCollection queryParameters)
+        private static Url GetDataUrl<T>(string verb, Platform platform, QueryParamCollection queryParameters, bool isExample)
         {
             return Constants.CensusBaseUrl.AppendPathSegments(
-                Constants.ServiceId,
+                isExample ? Constants.ExampleServiceId : Constants.ServiceId,
                 verb,
                 platform.GetNamespaceString(),
                 GetCollectionName<T>()
