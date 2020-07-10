@@ -1,0 +1,39 @@
+alias go="git ls-files -z | xargs -0 file | grep -E '(CRLF)|(BOM)'"
+git ls-files --eol | grep crlf
+
+
+Foreign Keys
+============
+
+Outfit.cs has LeaderCharacterId
+Ref<Character> LeaderCharacter
+or
+Ref<OutfitMember>
+
+Ref<T>.Id: already set (foreign key)
+Ref<T>.GetAsync: gets the thing
+
+Where Methods
+=============
+
+(member access on parameter)
+[<= < >= > == !=]
+(literal expression of type on left side of entire expression)
+
+Equal
+NotEqual
+GreaterThan
+GreaterThanOrEqual
+LessThan
+LessThanOrEqual
+
+N/A: Contains, StartsWith
+
+
+UNUSED FIELDS
+=============
+
+ArmorInfo: ArmorAmount
+EmpireScores: Description
+DirectiveTree: Description
+Item: release_time
