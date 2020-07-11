@@ -2,7 +2,7 @@ using System;
 
 namespace Auraxis.Net
 {
-    public class WhereSelector<TCollection, TField> where TCollection : ICollection
+    public class WhereSelector<TCollection, TField> where TCollection : IRegularCollection
     {
         internal readonly Query<TCollection> Query;
         internal readonly string FieldName;

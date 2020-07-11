@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 using Auraxis.Net.Helpers;
 using Flurl;
@@ -13,8 +14,12 @@ namespace Auraxis.Net
 
         internal AuraxisClient(Platform platform) => Platform = platform;
 
-        public Query<T> Query<T>() where T : ICollection
+        public Query<T> Query<T>() where T : IRegularCollection
             => new Query<T>(this);
+
+        // Map exception
+        public BareQuery<T> Query<T>(Server world, params Continent[] zones) where T : Map
+            => new BareQuery<T>(this).AddQuery("world_id", (int)world).AddQuery("zone_ids", string.Join(",", zones.Cast<int>()));
 
         internal async Task<List<T>> GetAsync<T>(QueryParamCollection queryParameters)
             where T : ICollection
